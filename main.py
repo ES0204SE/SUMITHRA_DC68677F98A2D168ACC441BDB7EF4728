@@ -1,10 +1,36 @@
-def fact_rec(n):
-   if n==0 or n==1:
-     return 1
-   else:
-    return n* fact_rec(n-1)
+'''Implement a class called BankAccount that represents a bank account.The class should have private
+attributes for account number,account holder name,and account balance.Include methods 
+deposit money,withdraw money,and display the account balance.Ensure that the account balance
+cannot be accessed directly from outside the class.Write a program to create an instance of the
+BankAccount class and test the deposit and withdrawal functionality.'''
 
-number =int(input("enter a number"))
-res = fact_rec(number)
 
-print("the factorial of {} is {}".format(number,res))
+class Bank_Account:
+    def __init__(self):
+        self.balance=0
+        print("Welcome to the Deposit & Withdrawal")
+ 
+    def deposit(self):
+        amount=float(input("Enter amount to be Deposited: "))
+        self.balance += amount
+        print("\n Amount Deposited:",amount)
+ 
+    def withdraw(self):
+        amount = float(input("Enter amount to be Withdrawn: "))
+        if self.balance>=amount:
+            self.balance-=amount
+            print("\n You Withdrew:", amount)
+        else:
+            print("\n Insufficient balance  ")
+ 
+    def display(self):
+        print("\n Net Available Balance=",self.balance)
+ 
+
+s = Bank_Account()
+  
+s.deposit()
+s.withdraw()
+s.display()                 
+
+ 
